@@ -104,7 +104,7 @@ int	ft_check_map(t_game *game)
 		ft_send_error(game, "Error\nmap is not surrounded by walls");
 	if (game->collect < 1 || game->exit_count < 1 || game->joueur != 1)
 	{
-		ft_send_error(game, "Error\nmap invalid (no element C, J or E) or J > 1");
+		ft_send_error(game, "Error\nmap err (no element C, J or E) or J > 1");
 	}
 	return (0);
 }

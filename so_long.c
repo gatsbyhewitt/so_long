@@ -23,7 +23,10 @@ int	main(int argc, char **argv)
 	ft_init(&game);
 	ft_check_map(&game);
 	if (ft_load_images(&game))
-		ft_exit_properly(&game); //, "Error\nerror when loading image"
+	{
+		ft_putendl_fd("Error\nerror when loading image", 2);
+		ft_exit_properly(&game);
+	}
 	ft_draw_map(&game);
 	mlx_hook(game.mlx_win, 33, 1L << 17, &ft_escape, &game);
 	mlx_loop_hook(game.mlx_win, &ft_no_event, &game);

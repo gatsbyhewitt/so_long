@@ -27,7 +27,7 @@ unsigned int	mlx_get_pixel(t_img *img, int x, int y)
 }
 
 //fonction  pour loads les textures
-int		ft_load(t_game *game, t_img **img, char *path)
+int	ft_load(t_game *game, t_img **img, char *path)
 {
 	int	width;
 	int	height;
@@ -40,7 +40,7 @@ int		ft_load(t_game *game, t_img **img, char *path)
 	return (0);
 }
 
-int		ft_load_images(t_game *game)
+int	ft_load_images(t_game *game)
 {
 	if (ft_load(game, &game->background, "images/background.xpm"))
 		return (1);
