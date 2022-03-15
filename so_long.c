@@ -22,7 +22,8 @@ int	main(int argc, char **argv)
 	ft_str_to_tab(&game, argv[1]);
 	ft_init(&game);
 	ft_check_map(&game);
-	ft_load_images(&game);
+	if (ft_load_images(&game))
+		ft_exit_properly(&game); //, "Error\nerror when loading image"
 	ft_draw_map(&game);
 	mlx_hook(game.mlx_win, 33, 1L << 17, &ft_escape, &game);
 	mlx_loop_hook(game.mlx_win, &ft_no_event, &game);

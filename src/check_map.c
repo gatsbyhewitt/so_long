@@ -97,12 +97,14 @@ int	ft_init_data(t_game *game)
 int	ft_check_map(t_game *game)
 {
 	if (ft_check_element(game))
-		ft_send_error("Error\nmap invalide (element inconnu)");
+		ft_send_error(game, "Error\nmap invalide (element inconnu)");
 	if (ft_check_len(game))
-		ft_send_error("Error\nmap is not a rectangle");
+		ft_send_error(game, "Error\nmap is not a rectangle");
 	if (ft_check_wall(game))
-		ft_send_error("Error\nmap is not surrounded by walls");
+		ft_send_error(game, "Error\nmap is not surrounded by walls");
 	if (game->collect < 1 || game->exit_count < 1 || game->joueur != 1)
-		ft_send_error("Error\nmap invalid (missing element C, J or E) or J > 1");
+	{
+		ft_send_error(game, "Error\nmap invalid (no element C, J or E) or J > 1");
+	}
 	return (0);
 }

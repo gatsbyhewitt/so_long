@@ -63,7 +63,7 @@ int				ft_check_wall(t_game *game);
 int				ft_check_wall_top(t_game *game);
 int				ft_check_len(t_game *game);
 int				ft_check_element(t_game *game);
-void			ft_send_error(char *str);
+void			ft_send_error(t_game *game, char *str);
 
 char			*ft_ber_to_str(char *map);
 void			ft_str_to_tab(t_game *game, char *map);
@@ -75,11 +75,12 @@ void			ft_draw_map(t_game *game);
 void			my_mlx_pixel_put(t_img *mlx_img, int x, int y, int color);
 unsigned int	mlx_get_pixel(t_img *mlx_img, int i, int j);
 
-void			ft_load(t_game *game, t_img **img, char *path);
-void			ft_load_images(t_game *game);
+int				ft_load(t_game *game, t_img **img, char *path);
+int				ft_load_images(t_game *game);
 
 int				ft_no_event(t_game *game);
 int				ft_escape(t_game *game);
+int				ft_exit_properly(t_game *game);
 int				ft_key_press(int k, t_game *game);
 
 int				ft_move(int key, t_game *game);

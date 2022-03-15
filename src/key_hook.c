@@ -33,6 +33,22 @@ int	ft_escape(t_game *game)
 	exit(0);
 }
 
+int	ft_exit_properly(t_game *game)
+{
+	int	i;
+
+	mlx_destroy_image(game->mlx, game->mlx_img);
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	i = 0;
+	while (i < game->height)
+		free(game->tab[i++]);
+	free(game->tab);
+	mlx_loop_end(game->mlx);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	exit(0);
+}
+
 int	ft_no_event(t_game *game)
 {
 	ft_putstr_fd("move count: ", 1);

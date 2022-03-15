@@ -80,6 +80,8 @@ void	ft_init(t_game *game)
 	ft_init_data(game);
 	game->len = ft_strlen(game->tab[0]);
 	game->mlx = mlx_init();
+	if (game->mlx == NULL)
+		exit(1);
 	game->mlx_win = mlx_new_window(game->mlx, game->len * SIZE,
 			game->height * SIZE, "so_long");
 	game->mlx_img = mlx_new_image(game->mlx, game->len * SIZE,

@@ -27,21 +27,26 @@ unsigned int	mlx_get_pixel(t_img *img, int x, int y)
 }
 
 //fonction  pour loads les textures
-void	ft_load(t_game *game, t_img **img, char *path)
+int		ft_load(t_game *game, t_img **img, char *path)
 {
 	int	width;
 	int	height;
 
 	*img = mlx_xpm_file_to_image(game->mlx, path, &width, &height);
+	if (*img == NULL)
+		return (1);
 	(**img).width = width;
 	(**img).height = height;
+	return (0);
 }
 
-void	ft_load_images(t_game *game)
+int		ft_load_images(t_game *game)
 {
-	ft_load(game, &game->background, "images/background.xpm");
+	if (ft_load(game, &game->background, "images/background.xpm"))
+		return (1);
 	ft_load(game, &game->exit, "images/exit.xpm");
 	ft_load(game, &game->gold, "images/gold.xpm");
 	ft_load(game, &game->player, "images/player.xpm");
 	ft_load(game, &game->wall, "images/wall.xpm");
+	return (0);
 }
